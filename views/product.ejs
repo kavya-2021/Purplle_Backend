@@ -13,8 +13,8 @@
         <link rel="icon" href="https://media6.ppl-media.com/mediafiles/ecomm/misc/purplle-16x16.png">
         <!-- <link rel="stylesheet" href="comp/navcss.css"> -->
     </head>
-    <body>
 
+    <body onload ="setData(`<%= JSON.stringify(products)%>`)">
         <div id="thatDiv">
 
         </div>
@@ -68,7 +68,7 @@
      
 
         <div id="container_products">
-           
+            
         </div>
         
 <!-- FOOTER PLACE CONTENTS -->
@@ -162,19 +162,19 @@
 </html>
 <script>
 
-
 let count = 0;
+let cartArray = JSON.parse(localStorage.getItem("cartItems")) || [];
 
+function setData(products){
+    let prod = JSON.parse(products);
+    ShowProductsOnMain(prod,cartArray)
+}
    
 // import nav from './comp/navjs.js';
 
 // var div = document.getElementById("thatDiv");
 
 // div.innerHTML = nav();
-
-let cartArray = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-
 
 // From Here till next Comment this is all related to slideShow1
 // From Here till next Comment this is all related to slideShow1
@@ -666,20 +666,6 @@ document.querySelector("#relevance_sort").addEventListener("click",relevance_sor
 
 let url = "http://localhost:4905/allproducts";
 
-let data = null;
-let products = [];
-
-const prod =  async(resolve,reject)=>{
-    let res = await fetch(url);
-    data = await res.json(); 
-    products = data; 
-    ShowProductsOnMain(products,cartArray);
-    return data;
-}
- 
-prod();
-
-
 //This is related to data of products Information 
 
 let contain_Div = document.querySelector("#container_products");
@@ -764,10 +750,10 @@ products.map(function(item,index){
 
 function addtoCart(item,index,cartArray){
 let toCartItem = item;
-let uniqueId = item.id;
+let uniqueId = item.code;
 let count = 0;
 for(let i = 0; i < cartArray.length ; i++){
-    if(uniqueId == cartArray[i].id) alert("Item already exists in cart");
+    if(uniqueId == cartArray[i].code) alert("Item already exists in cart");
     else count++;
 }
 if(count == cartArray.length){
@@ -1072,4 +1058,3 @@ document.querySelector("#ForNoShow").append(pNop);
 <!-- <script>
     console.log(products);
 </script> -->
-

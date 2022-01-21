@@ -1,3 +1,5 @@
+<!-- http://localhost:4905/skinproducts -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +12,7 @@
         <link rel="icon" href="https://media6.ppl-media.com/mediafiles/ecomm/misc/purplle-16x16.png">
         <link rel="stylesheet" href="comp/navcss.css">
     </head>
-    <body>
+    <body onload ="setDataSkin(`<%= JSON.stringify(skin)%>`)">
 
         <div id="thatDiv">
 
@@ -157,6 +159,11 @@
     </body>
 </html>
 <script>
+
+function setDataSkin(skin){
+    let prod = JSON.parse(skin);
+    ShowProductsOnMain(prod,cartArray)
+}
     let count = 0; 
 
     let cartArray = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -661,20 +668,6 @@ function noShow5(){
     document.querySelector("#relevance_sort").addEventListener("click",relevance_sort);  
 }
 
-let url = "http://localhost:4905/allskinproducts";
-
-let data = null;
-let products = [];
-
-const prod =  async(resolve,reject)=>{
-    let res = await fetch(url);
-    data = await res.json(); 
-    products = data; 
-    ShowProductsOnMain(products,cartArray);
-    return data;
-}
- 
-prod();
 
 let contain_Div = document.querySelector("#container_products");
 
@@ -776,7 +769,7 @@ function redirectedProduct(item){
 let data = item;
 console.log(data.title);
 localStorage.setItem("DataIndivi",JSON.stringify(data));
-// window.location.href = `/productdetails/${item.code}`;
+window.location.href = `/skinproducts/${data._id}`;
 }
 
 function priceRange1(){

@@ -1,3 +1,5 @@
+<!-- http://localhost:4905/hairproducts -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +13,7 @@
         <link rel="stylesheet" href="comp/navcss.css">
         <link rel="stylesheet" href="comp/navcss.css">
     </head>
-    <body>
+    <body onload ="setDataHair(`<%= JSON.stringify(hair)%>`)" >
 
         <div id="thatDiv">
 
@@ -157,7 +159,14 @@
     </body>
 </html>
 <script>
+
+function setDataHair(hair){
+    let prod = JSON.parse(hair);
+    ShowProductsOnMain(prod,cartArray)
+}
     let count = 0; 
+
+    
 
     // import nav from './comp/navjs.js';
 
@@ -655,20 +664,6 @@ function noShow5(){
     document.querySelector("#relevance_sort").addEventListener("click",relevance_sort);  
 }
 
-let url = "http://localhost:4905/allhairproducts";
-
-let data = null;
-let products = [];
-
-const prod =  async(resolve,reject)=>{
-    let res = await fetch(url);
-    data = await res.json(); 
-    products = data; 
-    ShowProductsOnMain(products,cartArray);
-    return data;
-}
- 
-prod();
 
 let contain_Div = document.querySelector("#container_products");
 
@@ -752,10 +747,10 @@ products.map(function(item,index){
 
 function addtoCart(item,index,cartArray){
 let toCartItem = item;
-let uniqueId = item.id;
+let uniqueId = item.code;
 let count = 0;
 for(let i = 0; i < cartArray.length ; i++){
-    if(uniqueId == cartArray[i].id) alert("Item already exists in cart");
+    if(uniqueId == cartArray[i].code) alert("Item already exists in cart");
     else count++;
 }
 if(count == cartArray.length){
@@ -770,9 +765,8 @@ function redirectedProduct(item){
 let data = item;
 console.log(data.title);
 localStorage.setItem("DataIndivi",JSON.stringify(data));
-// window.location.href = `/productdetails/${item.code}`;
+window.location.href = `/hairproducts/${data._id}`;
 }
-
 
 function priceRange1(){
     let max = 100;

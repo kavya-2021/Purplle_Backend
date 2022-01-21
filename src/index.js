@@ -27,30 +27,6 @@ const skinController = require('./controllers/skin.controller');
 
 app.use("/skinproducts",skinController);
 
-// crud for the database control of all products products
-
-const allproductController = require('./controllers/allproduct.controller');
-
-app.use("/allproducts",allproductController);
-
-// crud for the database control of all face makeup products
-
-const allfaceController = require('./controllers/faceprods.controller');
-
-app.use("/allfaceproducts",allfaceController);
-
-// crud for the database control of all Hair care products
-
-const allhairController = require('./controllers/hairprods.controller');
-
-app.use("/allhairproducts",allhairController);
-
-// crud for the database control of all Hair care products
-
-const allskinController = require('./controllers/skinprods.controller');
-
-app.use("/allskinproducts",allskinController);
-
 // crud for the ejs control of all products
 
 const productController = require('./controllers/product.controller');

@@ -2,6 +2,8 @@ const express = require('express');
 
 const Face = require('../models/face.model');
 
+const RequiredProd = require('../models/required.model')
+
 const router = express.Router();
 
 router.get("/",async(req,res)=>{
@@ -22,6 +24,24 @@ router.post("/",async(req,res)=>{
 
         const face = await Face.create(req.body);
         return res.status(201).send(face);
+
+    }catch(err){
+        return res.status(500).send({error: err.message});
+    }
+});
+
+router.get("/:id",async(req,res)=>{
+    try{
+
+        const del = await RequiredProd.deleteMany({});
+        
+        const product = await Face.findById(req.params.id).lean().exec();
+
+        const Reqproduct = await RequiredProd.create(product);
+        
+        return res.render("redirected",{
+            required : Reqproduct
+        });
 
     }catch(err){
         return res.status(500).send({error: err.message});
