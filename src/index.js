@@ -89,5 +89,9 @@ const productController = require('./controllers/product.controller');
 
 app.use("/products",productController);
 
+const cartController = require('./controllers/cart.controller');
+
+app.use("/cart",cartController);
+
 
 module.exports = app

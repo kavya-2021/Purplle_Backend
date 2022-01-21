@@ -758,7 +758,10 @@ for(let i = 0; i < cartArray.length ; i++){
 if(count == cartArray.length){
    document.querySelector("#toCartBtn1").innerHTML = "ADDED TO CART";
    cartArray.push(toCartItem);
-   localStorage.setItem("cartItems", JSON.stringify(cartArray));
+   window.post = function(url, data) {
+  return fetch(url, {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+  }
+    post("/cart", toCartItem);
    alert("Item added to cart! Successfully")  
 }   
 }
