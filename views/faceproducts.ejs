@@ -29,8 +29,8 @@
                 <i style="margin-left: 91%; text-align:right;font-size: 30px;color:grey" id="right" class="fas fa-chevron-right"></i>  
             </span>
         </div>
-        <div id="path">  <span> <a href="home.html"> Home </a> &ensp; > &ensp; <a href="home.html"> Shop by Category </a> &ensp; > &ensp; <a style="color: grey"href="FaceMakeup.html"> Face Makeup </a> </span> </div>
-        <div id="title_div"> <h1 id="head_title">FACE MAKEUP PRODUCTS</h1>  &ensp; <a id= "view_all" href="FaceMakeup.html"> View all</a> </div>
+        <div id="path">  <span> <a href="home.html"> Home </a> &ensp; > &ensp; <a href="home.html"> Shop by Category </a> &ensp; > &ensp; <a style="color: grey"href="/faceproducts"> Face Makeup </a> </span> </div>
+        <div id="title_div"> <h1 id="head_title">FACE MAKEUP PRODUCTS</h1>  &ensp; <a id= "view_all" href="/faceproducts"> View all</a> </div>
         <div id="filter_div">
             <div id="brand_sort"> 
                 <p> Brands &ensp; <i style="font-size: 12px" class="fas fa-chevron-down"></i>  <br> All </p> 
@@ -161,9 +161,11 @@
     </body>
 </html>
 <script>
+    let pds = [];
 function setDataFace(face){
     let prod = JSON.parse(face);
-    ShowProductsOnMain(prod,cartArray)
+    ShowProductsOnMain(prod,cartArray);
+    pds = prod;
 }
 
 let count = 0;
@@ -774,7 +776,7 @@ window.location.href = `/faceproducts/${data._id}`;
 
 function priceRange1(){
 let max = 100;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.price <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -783,7 +785,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 function priceRange2(){
 let min = 100;
 let max = 200;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.price > min && item.price <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -792,7 +794,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 function priceRange3(){
 let min = 200;
 let max = 400;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.price > min && item.price <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -801,7 +803,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 function priceRange4(){
 let min = 400;
 let max = 1000;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.price > min && item.price <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -810,7 +812,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 function priceRange5(){
 let min = 1000;
 let max = 3000;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.price > min && item.price <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -818,7 +820,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function priceRange6(){
 let min = 3000;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.price > min) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -826,77 +828,77 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 
 function brand1(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "Lakme") return item;
 });
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand2(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "Bobbi Brown") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand3(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "Maybelline") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand4(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "MAC") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand5(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "Swiss Beauty") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand6(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "Maliao") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand7(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "Makeup Revolution") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand8(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "Colorbar") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand9(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "NY Bae") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand10(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "L'Oreal Paris") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function brand11(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.brand === "Purplle") return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -905,7 +907,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 
 function discount1(){
 let max = 0.1;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.discount <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -914,7 +916,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 function discount2(){
 let min = 0.1
 let max = 0.2;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.discount > min && item.discount <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -923,7 +925,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 function discount3(){
 let min = 0.2
 let max = 0.3;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.discount > min && item.discount <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -932,7 +934,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 function discount4(){
 let min = 0.3
 let max = 0.4;
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.discount > min && item.discount <= max) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -940,7 +942,7 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function discount5(){
 let min = 0.4
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.discount > min) return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -948,21 +950,21 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 
 function skin4(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.skin_type === "Combination Skin") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function skin6(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.skin_type === "All Skin Types") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function skin7(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.skin_type === "Acne-Prone Skin") return item;
 })
 if(newProd.length === 0) NotAvailable()
@@ -970,74 +972,74 @@ else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 
 function discount_Desc(){
- let newProd = products.sort(function(a,b){
+ let newProd = pds.sort(function(a,b){
          return b.discount - a.discount ;
      });
 ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function  highTolow(){
-let  newProd = products.sort(function(a,b){
+let  newProd = pds.sort(function(a,b){
          return b.price - a.price ;
      });
 ShowProductsOnMain(newProd,contain_Div,cartArray)     
 }
 function lowTohigh(){
-let  newProd = products.sort(function(a,b){
+let  newProd = pds.sort(function(a,b){
          return a.price - b.price ;
      });
 ShowProductsOnMain(newProd,contain_Div,cartArray)     
 }
 function ratingDown(){
-let  newProd = products.sort(function(a,b){
+let  newProd = pds.sort(function(a,b){
          return b.rating - a.rating ;
      });
 ShowProductsOnMain(newProd,contain_Div,cartArray)     
 }
 
 function  hydrating(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.oneBenefit === "Hydrating") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function longLasting(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.oneBenefit === "Long Lasting") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function moisturizer(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.oneBenefit === "Moisturizing") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function lightweight(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.oneBenefit === "Light Weight") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function Smudgeproof(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.oneBenefit === "Smudgeproof") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function Sweatproof(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.oneBenefit === "Sweat Proof") return item;
 })
 if(newProd.length === 0) NotAvailable()
 else ShowProductsOnMain(newProd,contain_Div,cartArray)
 }
 function Easy_to_Use(){
-let newProd = products.filter(function(item){
+let newProd = pds.filter(function(item){
      if(item.oneBenefit === "Easy to Use") return item;
 })
 if(newProd.length === 0) NotAvailable()
