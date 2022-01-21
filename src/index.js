@@ -7,8 +7,10 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
+const Homepage = require('./controllers/home.controller')
 
 
+app.use("/" , Homepage)
 // crud for the ejs control of facemakeup products
 
 const faceController = require('./controllers/face.controller');
