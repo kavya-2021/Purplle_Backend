@@ -27,6 +27,12 @@ const skinController = require('./controllers/skin.controller');
 
 app.use("/skinproducts",skinController);
 
+// crud for the ejs control of Wish List products
+
+const wishController = require('./controllers/wish.controller');
+
+app.use("/wishlist",wishController);
+
 // crud for the ejs control of all products
 
 const productController = require('./controllers/product.controller');
