@@ -3,25 +3,29 @@
 
 # Purplle-Website-Clone 🔗
 ---
-##### This is clone website of purplle.com Purplle is an ecommerse website where user can buy all kinds of beauty products.
+##### This is clone website of purplle.com. Purplle is an ecommerse website where user can buy all kinds of beauty products.
 ---
 ## [Video Presentation ](https://youtu.be/i6cz8IRRaZ8)◀️
 ---
 ## [Blog Link](https://purpllecloneteam.blogspot.com/2021/12/purplle-website-clone.html)🌐
 ---
 ## Tech Stack 🔧
-- `HTML5`
+---
+#### Front-end
+- `EJS`
 - `CSS3`
 - `Advanced JavaScript`
+#### Back-end
 - `mongoDB`
-- `Node`
-- `Express`
-
+- `Nodejs`
+- `Expressjs`
+#### Data Base
+- `MongoDB Atlas`
 ---
 ## Features ✖️
-##### - Google Authentication
-##### - User can buy any type of beauty product
-##### - They can use this website from any device 
+##### - Google Authentication.
+##### - User can buy any type of beauty product.
+##### - They can use this website from any device.
 ##### - Users can sort & filter different kinds of products according to brands, price range, discount, benefits and active ingredients.
 ##### - Users can add product to wishlist.
 ---
@@ -39,37 +43,37 @@
 ![Responsive](https://github.com/mayuriwasu1/purplle_clone/blob/main/image/responsive.png)
 
 ---
-- **login-In Page**
+- **login Page**
 
 ![Sign In Page](https://github.com/mayuriwasu1/purplle_clone/blob/main/image/login.png)
 
 
 ---
 
-- **Product Page Filter/Sort**
-##### Here user can filter the product according to choice
+- **Product Page**
+##### Here user can filter/Sort the products according to choice
 ![Product Category Page](https://github.com/mayuriwasu1/purplle_clone/blob/main/image/cat_p.png)
 
 ---
 
-- **Product Details Page**
+- **Product Description Page**
 ##### Here User can get more information about product
 ![Product Details Page](https://github.com/mayuriwasu1/purplle_clone/blob/main/image/prod_desc.png)
 
 ---
 - **Cart Page**
-##### From here user can add and remove from cart
+##### From here user can add and remove products from cart
 ![Cart Page](https://github.com/mayuriwasu1/purplle_clone/blob/main/image/cart_page.png)
 
 ---
-- **Wish List**
+- **Wish List Page**
 ##### here users can save their favorite products.
 ![Wish List](https://github.com/mayuriwasu1/purplle_clone/blob/main/image/wishlist.png)
 
 ---
 
 - **Checkout Page**
-##### Here user can insert address 
+##### Here user can add address 
 ![Checkout Page](https://github.com/mayuriwasu1/purplle_clone/blob/main/image/adress.png)
 
 ---
@@ -94,13 +98,13 @@ They can place an order by simply clicking on the place order button after that 
 
 ## Creators  🤝🏻	
 
-#### Mayuri  [GitHub](https://github.com/mayuriwasu1):octocat:
+#### Mayuri  [GitHub](https://github.com/mayuriwasu1) :octocat:
 
-#### Kavya [GitHub](https://github.com/kavya-2021):octocat:
+#### Kavya [GitHub](https://github.com/kavya-2021) :octocat:
 
-#### Reetesh  [GitHub](https://github.com/Reeteshin):octocat:
+#### Reetesh  [GitHub](https://github.com/Reeteshin) :octocat:
 
-#### Aswin [GitHub](https://github.com/AswinAnand66):octocat:
+#### Aswin [GitHub](https://github.com/AswinAnand66) :octocat:
 
 
 
