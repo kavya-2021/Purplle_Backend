@@ -750,10 +750,10 @@ products.map(function(item,index){
 
 function addtoCart(item,index,cartArray){
 let toCartItem = item;
-let uniqueId = item.id;
+let uniqueId = item.code;
 let count = 0;
 for(let i = 0; i < cartArray.length ; i++){
-    if(uniqueId == cartArray[i].id) alert("Item already exists in cart");
+    if(uniqueId == cartArray[i].code) alert("Item already exists in cart");
     else count++;
 }
 if(count == cartArray.length){
