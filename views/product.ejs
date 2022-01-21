@@ -767,7 +767,6 @@ if(count == cartArray.length){
 function redirectedProduct(item){
 let data = item;
 console.log(data.title);
-localStorage.setItem("DataIndivi",JSON.stringify(data));
 window.location.href = `/products/${data._id}`;
 }
 
