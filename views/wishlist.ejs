@@ -10,10 +10,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
         <link rel="icon" href="https://media6.ppl-media.com/mediafiles/ecomm/misc/purplle-16x16.png">
         <link rel="stylesheet" href="css/productPage.css">
-        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="comp/navcss.css">
 
     </head>
-    <body>
+    <body onload ="setDataWish(`<%= JSON.stringify(wish)%>`)">
         
         <div id="thatDiv">
 
@@ -183,6 +183,11 @@
 </html>
 
 <script>
+    let wish = [];
+    function setDataWish(wish){
+    let prod = JSON.parse(wish);
+    ShowWishProduct(prod);
+}
      document.getElementById("my_wishlist").style.borderBottom = "7px solid #e40980"
     function ordersFromWish(){
         document.getElementById("product_wishlist").innerHTML = "";
@@ -214,7 +219,7 @@
     let wish_Data = JSON.parse(localStorage.getItem("product_wishlist")) || [];
 
     console.log(wish_Data);
-    ShowWishProduct(wish_Data);
+   
 
     let cartArray = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -310,20 +315,30 @@ function addingtoCartFromWish(wish,index,cartArray){
         else count++;
     }
     if(count == cartArray.length){
-       cartArray.push(toCartItem);
-       localStorage.setItem("cartItems", JSON.stringify(cartArray));
+        window.post = function(url, data) {
+        return fetch(url, {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+        }
+    post("/cart", toCartItem);
        alert("Item added to cart! Successfully")  
     }   
  }
 
  function removeFromCartFromWish(wish,index){
-     console.log(wish);
-     console.log(index);
-     wish_Data.splice(index, 1);
-     localStorage.setItem("product_wishlist",JSON.stringify(wish_Data));
-     ShowWishProduct(wish_Data)
-
+    let remCart = wish;
+    window.post = function(url) {
+    return fetch(url, {method: "DELETE", headers: {'Content-Type': 'application/json'}});
+  }
+    post(`/wishlist/${remCart._id}`);
+    window.location.reload();
  }
+           
+    function  sendToWishList(item){
+        let wishItem = item
+        window.post = function(url, data) {
+        return fetch(url, {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+        }
+    post("/cart", wishItem);
+}
 
 
  let wishStepstoBeauty = [
@@ -396,7 +411,7 @@ function showBeautyProfile(){
 function showThatprodfromWish(wish){
     let data = wish;
     localStorage.setItem("DataIndivi",JSON.stringify(data));
-    window.location.href = "/wishlist/data._id";
+    window.location.href = `/products/${data._id}`;
 }
 
 
@@ -414,13 +429,16 @@ function ShowWishOrders(){
     wishDiv.append(h3tag,image);
 }
 </script>
- 
+
+<!-- 
 <script type="module">
-    import nav from '/navbar.js';
+    import nav from './comp/navjs.js';
 
     console.log(nav)
     var div = document.getElementById("thatDiv");
 
     div.innerHTML = nav();
 
-</script> 
+</script> -->
+
+

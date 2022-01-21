@@ -175,9 +175,7 @@
 <script>
  let data = [];
   function setD(cart){
-      console.log("I'm here");
         let prod = JSON.parse(cart);
-        console.log(prod); 
         CartShow(prod)
         data = prod;      
     }
@@ -205,7 +203,6 @@
                 img.setAttribute("src",item.image_url[0]);
                 divimage.append(img)
 
-
                 var divDetails = document.createElement("div");
 
                 var titleName = document.createElement("p");
@@ -221,26 +218,28 @@
                 selectQty.setAttribute("id","Quantity")
                
                 selectQty.innerHTML = `<option>1</option><option>2</option><option>3</option><option>4</option>`
-                
-                 
-
 
                 var divButton = document.createElement("div");
                 divButton.setAttribute("id","divButton")
                 var b1 = document.createElement("button");
-                b1.innerHTML="Remove"
+                b1.innerHTML="Remove";
+                b1.onclick = ()=>{
+                    removefromCart(item,index);
+                }
+
+
                 var dash = document.createElement("p");
                 dash.setAttribute("class","dash")
                 dash.innerHTML=`|`
                 var b2 = document.createElement("button")
-                b2.innerHTML= "Move To WhishList"
+                b2.innerHTML= "Move To WishList";
+                b2.onclick = () => {
+                    sendToWishList(item);
+                }
                 divButton.append(b1,dash,b2)
-
                 
                 QytDiv.append(Qty,selectQty)
                 divDetails.append(QytDiv,divButton)
-
-
 
                 var divPriceAndDiscount = document.createElement("div");
                 divPriceAndDiscount.setAttribute("class","price");
@@ -318,14 +317,31 @@
          document.getElementById("bu").addEventListener("click",function(){
              
             window.location.href="address.html"
-         })
+         });
+
+    function removefromCart(item,index){
+        let remCart = item;
+
+        window.post = function(url) {
+            return fetch(url, {method: "DELETE", headers: {'Content-Type': 'application/json'}});
+         }
+       post(`/cart/${remCart._id}`);
+       window.location.reload();
+    }
            
+    function  sendToWishList(item){
+        let wishItem = item
+        window.post = function(url, data) {
+        return fetch(url, {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+        }
+    post("/wishlist", wishItem);
+    }
    
 </script>
 
 <script type="module">
     // Importing the nav
-    import nav from './comp/navjs.js';
+    import nav from '/navbar.js';
     var div = document.getElementById("thatDiv");
     div.innerHTML = nav();
 </script>

@@ -49,4 +49,18 @@ router.get("/:id",async(req,res)=>{
     }
 });
 
+router.delete("/:id",async(req,res)=>{
+    try{
+
+       const wishDel = await Wish.findByIdAndDelete(req.params.id).lean().exec();
+       const wish = await Wish.find().lean().exec();
+        return res.render("wishlist",{
+            wish : wish
+        });
+
+    }catch(err){
+        return res.status(500).send({error: err.message});
+    }
+});
+
 module.exports = router;

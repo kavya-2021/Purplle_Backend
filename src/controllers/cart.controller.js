@@ -49,4 +49,18 @@ router.get("/:id",async(req,res)=>{
     }
 });
 
+router.delete("/:id",async(req,res)=>{
+    try{
+
+       const cartDel = await Cart.findByIdAndDelete(req.params.id).lean().exec();
+       const cart = await Cart.find().lean().exec();
+        return res.render("cart",{
+            cart : cart
+        });
+
+    }catch(err){
+        return res.status(500).send({error: err.message});
+    }
+});
+
 module.exports = router;
