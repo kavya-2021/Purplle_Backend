@@ -103,7 +103,7 @@ function brandSlidera() {
   var click = 2;
   var size = document.querySelector(".slider_div2").offsetWidth;
   if (size < 900) {
-    click = 7;
+    click = 6;
   }
   if (count == 1) {
     document.getElementById("leftSwipea").style.opacity = 0.5;
@@ -160,10 +160,10 @@ function brandSliderp() {
   var slideList = document.querySelector(".slider_div1");
 
   var count = 1;
-  var click = 4;
+  var click = 3;
   var size = document.querySelector(".slider_div1").offsetWidth;
-  if (size < 900) {
-    click = 8;
+  if (size < 800) {
+    click = 6;
   }
   if (count == 1) {
     document.getElementById("leftSwipep").style.opacity = 0.5;
@@ -279,8 +279,8 @@ function productSliders() {
   var count = 1
   var click = 2
   var size = document.querySelector(".sliderP").offsetWidth
-  if (size < 800) {
-    click = 4
+  if (size < 200) {
+    click = 2
   }
   if (count == 1) {
     document.getElementById("swipe_L").style.opacity = 0.5
@@ -592,6 +592,7 @@ let products = [
    function redirectedProduct(item){
       let data = item;
       localStorage.setItem("DataIndivi",JSON.stringify(data));
-      window.location.href = "productDetails.html";
+      window.location.href = `/products/${data._id}`
+      ;
   }
   
