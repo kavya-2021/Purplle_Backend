@@ -5,7 +5,7 @@ const wishproductSchema = mongoose.Schema({
         title : {type: String, required: true},
         rating : {type: Number, required: true},
         brand: {type: String, required: true},
-        price : {type: Number, required: true},
+        price : {type: Number, required: true},   
         discount: {type: Number, required: true},
         qty : {type: Number, required: true,default:1},
         description : {type: String, required: true},

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const faceSchema = mongoose.Schema({
-        code : {type: String, required: true,unique: true},
+        code : {type: String, required: true,unique: true},  
         title : {type: String, required: true},
         rating : {type: Number, required: true},
         brand: {type: String, required: true},

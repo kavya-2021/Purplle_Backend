@@ -82,9 +82,9 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/users/login',
+    failureRedirect: '/users/login',  
     failureFlash: true
-  })(req, res, next);
+  })(req, res, next);   
 });
 
 // Logout

@@ -589,7 +589,7 @@ let products = [
       }   
    }
   
-   function redirectedProduct(item){
+   function redirectedProduct(item){  
       let data = item;
       localStorage.setItem("DataIndivi",JSON.stringify(data));
       window.location.href = `/products/${data._id}`

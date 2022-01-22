@@ -1,7 +1,7 @@
 <!-- http://localhost:4905/hairproducts -->
 
 <!DOCTYPE html>
-<html>
+<html>  
     <head>
         <title>Hair Care Products</title>
         <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
     <body onload ="setDataHair(`<%= JSON.stringify(hair)%>`)" >
 
         <div id="thatDiv">
-
+  
         </div>
   
    <!-- ABOVE IS FOR NAV BAR
@@ -27,19 +27,19 @@
             <span>  
                 <i  style="margin-left:3%;margin-top:190px; font-size: 30px;color:grey" id="left"; class="fas fa-chevron-left"></i>  
                 <i style="margin-left: 91%; text-align:right;font-size: 30px;color:grey" id="right" class="fas fa-chevron-right"></i>  
-            </span>
+            </span>  
         </div>
         <div id="path">  <span> <a href="home.html"> Home </a> &ensp; > &ensp; <a href="home.html"> Shop by Category </a> &ensp; > &ensp; <a style="color: grey"href="/hairproducts"> Hair Care </a> </span> </div>
         <div id="title_div"> <h1 id="head_title">HAIR CARE PRODUCTS</h1>  &ensp; <a id= "view_all" href="/hairproducts"> View all</a> </div>
         <div id="filter_div">
             <div id="brand_sort"> 
                 <p> Brands &ensp; <i style="font-size: 12px" class="fas fa-chevron-down"></i>  <br> All </p> 
-            </div>
+            </div>  
             <div></div>
             <div id="price_sort">
                 <p> Price Range &ensp; <i style="font-size: 12px" class="fas fa-chevron-down"></i>  <br> All </p> 
             </div>
-            <div></div>
+            <div></div>  
             <div id="discount_sort">
                 <p> Discounts &ensp; <i style="font-size: 12px" class="fas fa-chevron-down"></i>  <br> All </p> 
             </div>
@@ -62,20 +62,20 @@
         </div>
         <div id="sort_details"> 
            
-        </div>
+        </div>  
         <p id="heading_sub1"> ALL PRODUCTS</p>
         <div id="ForNoShow"></div>
         <div id="container_products">
 
         </div>
 
-<!-- FOOTER PLACE CONTENTS -->
+<!-- FOOTER PLACE CONTENTS -->  
 <!-- FOOTER PLACE CONTENTS -->
 <!-- FOOTER PLACE CONTENTS -->    
     <div id="secure_assist_help">
         <div id="secure">
         <img
-            _ngcontent-htd-c2=""
+            _ngcontent-htd-c2=""  
             alt="secure payments"
             class="w100p mr0auto mx-w120 db pdt25 pdb25 visible"
             src="https://media6.ppl-media.com/mediafiles/ecomm/home/1499247950_secure-payment.jpg"
@@ -88,11 +88,11 @@
         <img
             alt="beauty assistant"
             src="https://media6.ppl-media.com/mediafiles/ecomm/home/1499247975_beauty-assistant.jpg"
-        />
+        />  
         <h2>Beauty Assistant</h2>
         <p>
             Tell me what you are looking for and i will work my magic to help you
-            find your perfect match.
+            find your perfect match.  
         </p>
         </div>
 
@@ -101,63 +101,63 @@
             alt="help centre"
             src="https://media6.ppl-media.com/mediafiles/ecomm/home/1499247997_help-center.jpg"
         />
-        <h2>Help Center</h2>
+        <h2>Help Center</h2>  
         <p>
             Got a question? Look no further. Browse FAQs or submit your query.
         </p>
         </div>
     </div>
 
-    <div class="advertise">
+    <div class="advertise">  
         <div>
         <h2>Spotlight</h2>
-        <iframe
+        <iframe  
             _ngcontent-htd-c2=""
             allowfullscreen=""
             frameborder="0"
             height="225"
             src="https://www.youtube.com/embed/NrI9d0XiP7M?rel=0&amp;showinfo=0&amp;autoplay=1"
             width="400"
-        ></iframe>
+        ></iframe>  
         <hr id="footer_hr"/>
-        </div>
+        </div>  
         <div>
         <h2>Shop on the go</h2>
         <div id="app_ads">
-            <div>
+            <div>  
             <p>
                 The Purplle BFF APP is now fully loaded! Get downloading now on
                 both iOS & Android
             </p>
 
-            <img
+            <img  
                 alt="Google Play"
                 class="google_apple"
                 src="https://media6.ppl-media.com/mediafiles/ecomm/home/1499247983_google-play.png"
-            />
+            />  
 
             <img
-                alt="App Store"
+                alt="App Store"  
                 class="google_apple"
                 src="https://media6.ppl-media.com/mediafiles/ecomm/home/1499247967_app-store.png"
             />
             </div>
             <div>
             <img
-                alt="shop on the go"
+                alt="shop on the go"  
                 src="https://media6.ppl-media.com/mediafiles/ecomm/home/1499247958_shop-on-the-go.png"
             />
-            </div>
+            </div>  
         </div>
         <hr id="footer_hr"/>
         </div>
     </div>
 <!-- Footer Part of Content -->
-<!-- Footer Part of Content -->
+<!-- Footer Part of Content -->  
 <!-- Footer Part of Content -->
 
        
-    </body>
+    </body>  
 </html>
 <script>
     let pds = [];
@@ -167,13 +167,13 @@ function setDataHair(hair){
     pds = prod
 }
     let count = 0; 
-
+    
     
 
     // import nav from './comp/navjs.js';
 
     // var div = document.getElementById("thatDiv");
-
+  
     // div.innerHTML = nav();
 
     let cartArray = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -181,11 +181,11 @@ function setDataHair(hair){
     // From Here till next Comment this is all related to slideShow1
     // From Here till next Comment this is all related to slideShow1
 
-    let slideshowData = [1,2,3,4,5,6,7];
+    let slideshowData = [1,2,3,4,5,6,7]; 
 
     document.querySelector("#slideShow1").style.backgroundImage = "url(https://media6.ppl-media.com/mediafiles/ecomm/misc/1639554608_web-brand-banner-2.gif?tr=f-gif)"
  
-    function slideShow(count){
+    function slideShow(count){ 
        if(count == 0) document.querySelector("#slideShow1").style.backgroundImage = "url(https://media6.ppl-media.com/mediafiles/ecomm/misc/1639554608_web-brand-banner-2.gif?tr=f-gif)"
        if(count == 1) document.querySelector("#slideShow1").style.backgroundImage = "url(https://media6.ppl-media.com/mediafiles/ecomm/misc/1633550681_dd-purplle-1280x400.jpg)"
        if(count == 2) document.querySelector("#slideShow1").style.backgroundImage = "url(https://media6.ppl-media.com/mediafiles/ecomm/misc/1638872213_wow_category_web-copy-2.jpg)";

@@ -5,7 +5,7 @@ const Face = require('../models/face.model');
 const RequiredProd = require('../models/required.model')
 
 const router = express.Router();
-const Product = require('../models/product.model');
+const Product = require('../models/product.model');  
 router.get("/",async(req,res)=>{
     try{
 

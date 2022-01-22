@@ -1,11 +1,11 @@
 const express = require('express');
-
+    
 const Wish = require('../models/wish.model');
-
-const RequiredProd = require('../models/required.model')
+  
+const RequiredProd = require('../models/required.model')  
 
 const router = express.Router();
-const Product = require('../models/product.model');
+const Product = require('../models/product.model');  
 router.get("/",async(req,res)=>{
     try{
 
@@ -21,8 +21,8 @@ router.get("/",async(req,res)=>{
 
 router.post("/",async(req,res)=>{
     try{
-
-        const wish = await Wish.create(req.body);
+   
+        const wish = await Wish.create(req.body);  
 
         return res.status(201).send(wish);
 

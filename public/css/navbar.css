@@ -1,10 +1,10 @@
 
 .BorderLineSearch {
    
-    width: 70%;
+    width: 70%;  
     border-bottom: 3px solid #e40980;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;  
     margin: 0px 0px 25px 50px;
     transition: all 0.5s ease 0s;
  }

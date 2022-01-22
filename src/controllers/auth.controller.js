@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require('../configs/auth');
 
-// Welcome Page
+// Welcome Page  
 router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 
 // Dashboard

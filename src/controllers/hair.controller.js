@@ -42,7 +42,7 @@ router.get("/:id",async(req,res)=>{
         
         return res.render("productDescription",{
             required : Reqproduct,
-            allProducts:allProducts
+            allProducts:allProducts  
         });
 
     }catch(err){

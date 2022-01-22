@@ -41,7 +41,7 @@ router.get("/:id",async(req,res)=>{
 
         const Reqproduct = await RequiredProd.create(product);
         
-        return res.render("productDescription",{
+        return res.render("productDescription",{  
             required : Reqproduct,
             allProducts:allProducts
         });

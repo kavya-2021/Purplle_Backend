@@ -49,53 +49,58 @@ app.use(flash());
 
 
 // Global variables
-app.use(function(req, res, next) {
-    res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
-    res.locals.error = req.flash('error');
+app.use(function(req, res, next) {   
+    res.locals.success_msg = req.flash('success_msg');   
+    res.locals.error_msg = req.flash('error_msg');  
+    res.locals.error = req.flash('error');  
     next();
   });
   
   // Routes
   app.use('/', require('./controllers/auth.controller.js'));
-  app.use('/users', require('./controllers/users.controller.js'));
+  app.use('/users', require('./controllers/users.controller.js'));  
   
 
 
 
 // crud for the ejs control of facemakeup products
-
-const faceController = require('./controllers/face.controller');
+  
+const faceController = require('./controllers/face.controller');  
 
 app.use("/faceproducts",faceController);
-
-// crud for the ejs control of hairCare products
+  
+// crud for the ejs control of hairCare products  
 
 const hairController = require('./controllers/hair.controller');
 
 app.use("/hairproducts",hairController);
 
-// crud for the ejs control of Skin-Care products
+// crud for the ejs control of Skin-Care products    
 
 const skinController = require('./controllers/skin.controller');
 
 app.use("/skinproducts",skinController);  
 
-// crud for the ejs control of Wish List products
+// crud for the ejs control of Wish List products   
 
 const wishController = require('./controllers/wish.controller');
 
 app.use("/wishlist",wishController);
 
-// crud for the ejs control of all products
-
+// crud for the ejs control of all products  
 const productController = require('./controllers/product.controller');
 
-app.use("/products",productController);
+app.use("/products",productController);  
 
 const cartController = require('./controllers/cart.controller');
 
-app.use("/cart",cartController);
+app.use("/cart",cartController);  
 
 
-module.exports = app
+module.exports = app  
+   
+  
+  
+  
+  
+  
