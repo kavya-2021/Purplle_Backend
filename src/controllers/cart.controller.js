@@ -6,6 +6,8 @@ const RequiredProd = require('../models/required.model')
 
 const router = express.Router();
 
+const Product = require('../models/product.model');
+
 router.get("/",async(req,res)=>{
     try{
 
@@ -35,13 +37,14 @@ router.get("/:id",async(req,res)=>{
     try{
 
         const del = await RequiredProd.deleteMany({});
-        
+        const allProducts=await Product.find().lean().exec();
         const cart = await Cart.findById(req.params.id).lean().exec();
 
         const Reqcart = await RequiredProd.create(cart);
         
-        return res.render("cart",{
-            cartProducts : Reqcart
+        return res.render("productDescription",{
+            cartProducts : Reqcart,
+            allProducts:allProducts
         });
 
     }catch(err){

@@ -35,13 +35,15 @@ router.get("/:id",async(req,res)=>{
     try{
 
         const del = await RequiredProd.deleteMany({});
-        
+        const allProducts=await Product.find().lean().exec();
+ 
         const product = await Product.findById(req.params.id).lean().exec();
 
         const Reqproduct = await RequiredProd.create(product);
         
-        return res.render("redirected",{
-            required : Reqproduct
+        return res.render("productDescription",{
+            required : Reqproduct,
+            allProducts:allProducts
         });
 
     }catch(err){

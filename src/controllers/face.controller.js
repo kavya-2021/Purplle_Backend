@@ -5,7 +5,7 @@ const Face = require('../models/face.model');
 const RequiredProd = require('../models/required.model')
 
 const router = express.Router();
-
+const Product = require('../models/product.model');
 router.get("/",async(req,res)=>{
     try{
 
@@ -36,11 +36,12 @@ router.get("/:id",async(req,res)=>{
         const del = await RequiredProd.deleteMany({});
         
         const product = await Face.findById(req.params.id).lean().exec();
-
+        const allProducts=await Product.find().lean().exec();
         const Reqproduct = await RequiredProd.create(product);
         
-        return res.render("redirected",{
-            required : Reqproduct
+        return res.render("productDescription",{
+            required : Reqproduct,
+            allProducts:allProducts
         });
 
     }catch(err){
