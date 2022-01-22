@@ -34,7 +34,7 @@
 
 - **Home Page**
 ##### here is the landing page of purplle clone
-![Landing Page](https://github.com/mayuriwasu1/purplle_clone/blob/main/image/home_pic.png)
+![Landing Page](https://github.com/kavya-2021/Purplle_Backend/blob/main/public/image/landing_page.png)
 
 ---
 - **Reponsive Home Page**
